@@ -15,9 +15,9 @@ define(
       released: '@@released'
     },
 
-    meta: 'oneline',
+    meta: 'standby',
 
-    title: 'OneLine',
+    title: 'StandBy',
 
     lang:     'en',
 

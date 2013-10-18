@@ -1,78 +1,88 @@
-if (window.location.port == '8080')
+if (window.location.port === '8080')
 {
   document.getElementsByTagName('html')[0].setAttribute('ng-app');
 }
 
-require.config (
+require.config(
   {
-    paths: {
-      angular:  '../vendors/angular/angular',
-      jquery:   '../vendors/jquery/jquery.min',
-      domReady: '../vendors/requirejs-domready/domReady'
+    paths:
+    {
+      angular:            '../vendors/angular/angular.min',
+      jquery:             '../vendors/jquery/jquery.min',
+      domReady:           '../vendors/requirejs-domready/domReady',
+      bootstrap:          '../vendors/bootstrap-sass/dist/js/bootstrap.min',
+      'angular-resource': '../vendors/angular-resource/angular-resource.min'
     },
-    shim: {
-      angular: {
+    shim:
+    {
+      angular:
+      {
         deps:     ['jquery'],
         exports:  'angular'
+      },
+      'angular-resource':
+      {
+        deps:     ['angular']
+      },
+      bootstrap:
+      {
+        deps:     ['jquery'],
+        exports:  'bootstrap'
       }
     }
   }
 );
 
-require (
+require(
   [
     'angular',
-    'app',
     'domReady',
-    'run',
+
+    'angular-resource',
+
     'config',
-    'controllers/home',
-    'controllers/partial1',
-    'controllers/partial2',
-    'directives/appVersion',
-    'filters/interpolate',
-    'services/version',
-    'services/user'
-    // Any individual controller, service, directive or filter file
-    // that you add will need to be pulled in here.
+    'app',
+    'routes',
+    'run',
+
+//    'modals/user',
+//    'modals/core',
+
+//    'controllers/login',
+//    'controllers/forgotPass',
+//    'controllers/register',
+//    'controllers/logout',
+//    'controllers/core',
+//    'controllers/purchaser',
+//    'controllers/manager',
+//    'controllers/notifier',
+//    'controllers/reporter',
+//    'controllers/guarder',
+//    'controllers/profile',
+
+//    'directives/appVersion',
+
+//    'filters/interpolate',
+//    'filters/all',
+
+//    'services/version',
+//    'services/user',
+
+//    'services/session',
+//    'services/md5',
+//    'services/storage',
+//    'services/strings',
+//    'services/generators',
+
+    'bootstrap'
   ],
-  function (angular, app, domReady)
+  function (angular, domReady)
   {
     'use strict';
 
-    // $('html').removeAttr('ng-app');
-
-    app.config(
-      [
-        '$routeProvider',
-        function ($routeProvider)
-        {
-          $routeProvider
-            .when('/home',
-            {
-              templateUrl:  'views/home.html',
-              controller:   'home'
-            })
-            .when('/partial1',
-            {
-              templateUrl:  'views/partial1.html',
-              controller:   'partial1'
-            })
-            .when('/partial2',
-            {
-              templateUrl:  'views/partial2.html',
-              controller:   'partial2'
-            })
-            .otherwise({
-              redirectTo: '/home'
-            });
-        }
-      ]
-    );
-
     domReady(function ()
       {
-        angular.bootstrap(document, ['MyApp']);
+        angular.bootstrap(document, ['StandBy']);
       }
     );
 

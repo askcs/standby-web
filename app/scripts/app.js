@@ -12,7 +12,7 @@ define(
   ],
   function (angular)
   {
-    return angular.module('WebPaige',
+    return angular.module('StandBy',
       [
         'modals',
         'controllers',
