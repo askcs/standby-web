@@ -1,22 +1,25 @@
 'use strict';
 
-// The app/scripts/app.js file, which defines our AngularJS app
 define(
   [
     'angular',
+    'modals/modals',
     'controllers/controllers',
     'services/services',
     'filters/filters',
-    'directives/directives'
+    'directives/directives',
+    'angular-resource'
   ],
   function (angular)
   {
-    return angular.module('MyApp',
+    return angular.module('WebPaige',
       [
+        'modals',
         'controllers',
         'services',
         'filters',
-        'directives'
+        'directives',
+        'ngResource'
       ]);
   }
 );
